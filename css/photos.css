@@ -1,6 +1,7 @@
 .mephoto{
-  width: 50%;
+  width: 30%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 400px;
 }
