@@ -5,6 +5,7 @@ p{
     margin-bottom: 0;
 }
 .welcome {
+    font-family: Roboto;
     font-size: 40px;
     font-weight: bold;
     text-align: center;
