@@ -18,12 +18,13 @@ p{
 }
 .freaky:hover{
     text-decoration: underline;
-    font-size: 50px;
+    font-size: 70px;
 }
 
 
 
 .button1 {
+    display: block;
     background-color: olivedrab;
     border-color: green;
     border-style: solid;
@@ -53,6 +54,7 @@ p{
     opacity: 0.8;
 }
 .button2{
+    display: block;
     background-color: whitesmoke;
     border-color: green;
     border-style: solid;
