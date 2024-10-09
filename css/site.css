@@ -3,7 +3,7 @@
   text-align: center; /* center the text */
   background: rgb(24, 180, 24); /* green background */
   color: white; /* white text color */
-  background-image: url("/files/forest.jpg");
+  background-image: url("../files/forest.jpg");
   filter: blur(8px);
   -webkit-filter: blur(8px);
 
