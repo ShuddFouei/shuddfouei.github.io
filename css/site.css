@@ -3,12 +3,35 @@
   text-align: center; /* center the text */
   background: rgb(24, 180, 24); /* green background */
   color: white; /* white text color */
+  background-image: url("../files/forest.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+  height: 27%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+
+.welcome{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
 }
 
 /* Increase the font size of the <h1> element */
-.header h1 {
-  font-size: 60px;
-}
 
 .bio{
   padding: 20px;
