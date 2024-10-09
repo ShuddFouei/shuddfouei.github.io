@@ -10,6 +10,9 @@
   font-size: 60px;
 }
 
+.bio{
+  padding: 20px;
+}
 
 /* Style the top navigation bar */
 .navbar {
@@ -34,8 +37,7 @@
 
 /* Change color on hover/mouse-over */
 .navbar a:hover {
-  background-color: #ddd; /* Grey background color */
-  color: black; /* Black text color */
+  background-color: #777; /* Grey background color */
 }
 
 /* Ensure proper sizing */
@@ -64,6 +66,7 @@
   flex: 70%; /* Set the width of the main content */
   background-color: white; /* White background color */
   padding: 20px; /* Some padding */
+  height: 700px;
 }
 
 

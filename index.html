@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="css/buttons.css">
         <link rel="stylesheet" href="css/photos.css">
         <link rel="stylesheet" href="css/site.css">
+        <link rel="stylesheet" href="css/fullpgtab.css">        
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -33,7 +34,7 @@
         <!-- Add your site or application content here -->
 
         <div class="header">
-            <h1 class="welcome">
+            <p class="welcome">
                 Welcome to my<span class="freaky">𝓯𝓻𝓮𝓪𝓴𝔂</span> website
             </p>
           </div>       
@@ -44,7 +45,7 @@
         <div class="navbar">
             <a href="index.html">Home</a>
             <a href="resume.html">Resume</a>
-            <a href="#">Link</a>
+            <a href="gallery.html">Gallery</a>
             <a href="#" class="right">Link</a>
           </div>
 
@@ -52,7 +53,8 @@
           <div class="row">
             <div class="side">
                 <img class="mephoto" alt="me" src="files/me.png">
-                <p>Hi! I’m Jo Trotechaud, an IST undergraduate pursuing cybersecurity, with an associates degree in Computer Science as well as half a decade of customer service experience. I’m seeking a position in the field of IT/IS with goals to become a security or business analyst.</p>
+                <p class="bio">Hi! I’m Jo Trotechaud, an IST undergraduate pursuing cybersecurity, with an associates degree in Computer Science as well as half a decade of customer service experience. I’m seeking a position in the field of IT/IS with goals to become a security or business analyst.</p>
+                <p class="bio">My hobbies include photography, cosplay, and snowboarding! To pad the website I'll add a gallery section</p>
                 <p>                     
                     <a href="https://www.linkedin.com/in/jo-trotechaud/"target="_blank"> <img src="files/linlogo.svg" width="30px" /> </a>
                     <a href="https://www.github.com/ShuddFouei"target="_blank"> <img src="files/ghublogo.svg" width="30px" /> </a>
@@ -75,7 +77,36 @@
 
             </div>
           </div>
-                    
+          
+          
+          <button class="tablink" onclick="openPage('Home', this, 'green')">Home</button>
+          <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
+          <button class="tablink" onclick="openPage('Contact', this, 'green')">Contact</button>
+          <button class="tablink" onclick="openPage('About', this, 'green')">About</button>
+          
+          <div id="Home" class="tabcontent">
+            <h3>Home</h3>
+            <p>Home is where the heart is..</p>
+          </div>
+          
+          <div id="News" class="tabcontent">
+            <h3>News</h3>
+            <p>Some news this fine day!</p>
+          </div>
+          
+          <div id="Contact" class="tabcontent">
+            <h3>Contact</h3>
+            <p>Get in touch, or swing by for a cup of coffee.</p>
+          </div>
+          
+          <div id="About" class="tabcontent">
+            <h3>About</h3>
+            <p>Who we are and what we do.</p>
+          </div> 
+
+
+
+
           <div class="footer">
             <h2>Footer</h2>
           </div> 
@@ -96,6 +127,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

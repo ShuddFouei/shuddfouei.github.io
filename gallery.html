@@ -20,7 +20,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-
+        <link rel="stylesheet" href="css/gallery.css">
         <link rel="stylesheet" href="css/buttons.css">
         <link rel="stylesheet" href="css/photos.css">
         <link rel="stylesheet" href="css/site.css">
@@ -49,34 +49,75 @@
             <a href="#" class="right">Link</a>
           </div>
 
-          <div class="row">
-            <div class="side">
-                <img class="mephoto" alt="me" src="files/me.png">
-                <p>Hi! I’m Jo Trotechaud, an IST undergraduate pursuing cybersecurity, with an associates degree in Computer Science as well as half a decade of customer service experience. I’m seeking a position in the field of IT/IS with goals to become a security or business analyst.</p>
-                <p>                     
-                    <a href="https://www.linkedin.com/in/jo-trotechaud/"target="_blank"> <img src="files/linlogo.svg" width="30px" /> </a>
-                    <a href="https://www.github.com/ShuddFouei"target="_blank"> <img src="files/ghublogo.svg" width="30px" /> </a>
-                </p>
+ <!-- Images used to open the lightbox -->
+ <div class="row">
+    <div class="column">
+      <img src="files/gallerypics/angel.jpg" style="width:425px" onclick="openModal();currentSlide(1)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="files/gallerypics/control.jpg" style="width:425px" onclick="openModal();currentSlide(2)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="files/gallerypics/miko!.jpg" style="width:425px" onclick="openModal();currentSlide(3)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="files/gallerypics/fishing.jpg" style="width:425px" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
+  </div>
+  
+  <!-- The Modal/Lightbox -->
+  <div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+  
+      <div class="mySlides">
+        <div class="numbertext">1 / 4</div>
+        <img src="files/gallerypics/angel.jpg" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">2 / 4</div>
+        <img src="files/gallerypics/control.jpg" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">3 / 4</div>
+        <img src="files/gallerypics/miko!.jpg" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">4 / 4</div>
+        <img src="files/gallerypics/fishing.jpg" style="width:100%">
+      </div>
+  
+      <!-- Next/previous controls -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+      <!-- Caption text -->
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+  
+      <!-- Thumbnail image controls -->
+      <div class="column">
+        <img class="demo" src="" onclick="currentSlide(1)" alt="Nature">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="" onclick="currentSlide(2)" alt="Snow">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="" onclick="currentSlide(3)" alt="Mountains">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="" onclick="currentSlide(4)" alt="Lights">
+      </div>
+    </div>
+  </div> 
 
-
-
-                
-            </div>
-            <div class="main">
-
-                <button class="button1">
-                    LOL
-                </button>
-        
-                <button class="button2">
-                    lmfao even
-                </button>               
-                <iframe src="files/resume.pdf" width="100%" height="1000px"></iframe>
-                </iframe>
-
-            </div>
-          </div>
-                    
           <div class="footer">
             <h2>Footer</h2>
           </div> 
@@ -97,6 +138,8 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+
+        <script src="js/gallery.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
