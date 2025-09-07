@@ -43,6 +43,14 @@
     .blog-list{display:grid;gap:16px}
     .post{background:rgba(126,194,138,.05);border:1px solid var(--border);border-radius:14px;padding:16px}
     .post h3{margin:0 0 6px}.post time{font-size:13px;color:var(--muted)}.post .tags{margin-top:8px}.post .tag{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:4px 8px;margin:0 6px 0 0;font-size:12px;color:var(--muted)}
+        /* Resume dropdown styles */
+    .resume-drop { border:1px solid var(--border); border-radius:var(--radius); background:var(--panel); box-shadow:var(--shadow); overflow:hidden; }
+    .resume-drop summary { list-style:none; cursor:pointer; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px; font-weight:600; }
+    .resume-drop summary::-webkit-details-marker { display:none; }
+    .resume-drop .chev { transition: transform .2s ease; }
+    .resume-drop[open] .chev { transform: rotate(180deg); }
+    .resume-frame { display:block; width:100%; height: min(88vh, 1200px); border:0; background:#0c1f17; }
+    .resume-fallback { padding:16px; color:var(--muted); }
   </style>
 </head>
 <body>
@@ -174,17 +182,19 @@
       </div>
     </section>
 
-    <section id="resume" aria-labelledby="resume-title">
-      <h2 id="resume-title">Resume</h2>
-      <div class="resume-wrap">
-        <div class="resume-actions">
-          <div class="left"><span>Embedded PDF preview</span></div>
-          <div class="right"><a class="btn" href="resume.pdf" download>Download PDF</a></div>
-        </div>
+    <section id="resume">
+      <h2>Resume</h2>
+      <details class="resume-drop">
+        <summary>
+          <span>Open resume (PDF)</span>
+          <span class="chev" aria-hidden="true">▼</span>
+        </summary>
         <object class="resume-frame" data="resume.pdf" type="application/pdf" aria-label="Resume PDF">
-          <div class="resume-fallback">Your browser can’t display PDFs here. You can <a href="resume.pdf">open the resume</a> in a new tab.</div>
+          <div class="resume-fallback">
+            Your browser can’t display PDFs here. You can <a href="resume.pdf">open the resume</a> in a new tab or <a href="resume.pdf" download>download it</a>.
+          </div>
         </object>
-      </div>
+      </details>
     </section>
 
     <section id="contact" aria-labelledby="contact-title">
