@@ -1,268 +1,436 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jo Trotechaud — Cybersecurity Portfolio</title>
-  <meta name="description" content="Cybersecurity portfolio of Jo Trotechaud — projects, resume, experience, updates, and contact." />
-  <meta name="theme-color" content="#0b241a" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b241a; --panel: rgba(20,41,31,.7); --text:#e7f2ea; --muted:#b7c9bf; --accent:#7ec28a; --border: rgba(126,194,138,.2); --shadow:0 10px 30px rgba(0,0,0,.35); --radius:18px; --gap:clamp(16px,3vw,28px);
-    }
-    html{scroll-behavior:smooth}*{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:radial-gradient(1200px 800px at 10% 10%,#123524 0%,transparent 60%),radial-gradient(900px 600px at 90% 0%,#132f23 0%,transparent 60%),linear-gradient(180deg,#0b241a 0%,#081811 100%);background-attachment:fixed;line-height:1.6}
-    header{position:sticky;top:0;z-index:40;backdrop-filter:saturate(120%) blur(8px);background:rgba(8,24,17,.6);border-bottom:1px solid var(--border)}
-    .nav{max-width:1100px;margin:0 auto;padding:12px var(--gap);display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .brand svg{width:28px;height:28px}
-    .menu{display:flex;align-items:center;gap:24px}
-    .menu .menu-btn{display:none;background:transparent;border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:12px}
-    .menu .links{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
-    .menu .links a{color:var(--text);text-decoration:none;opacity:.9;font-weight:500}
-    .menu .links a:hover,.menu .links a[aria-current="page"]{color:var(--accent)}
-    @media (max-width:760px){.menu{justify-content:flex-end}.menu .menu-btn{display:inline-flex}.menu .links{position:absolute;left:0;right:0;top:56px;display:none;flex-direction:column;align-items:flex-start;gap:0;background:rgba(8,24,17,.95);border-bottom:1px solid var(--border)}.menu .links li{width:100%}.menu .links a{display:block;width:100%;padding:14px var(--gap);border-top:1px solid rgba(255,255,255,.05)}.menu .links.open{display:flex}}
-    section{max-width:1100px;margin:0 auto;padding:80px var(--gap)}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--gap);align-items:center}
-    .hero h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:0 0 10px}
-    .hero p{font-size:clamp(16px,2.5vw,20px);color:var(--muted);margin-top:12px}
-    .cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{appearance:none;border:1px solid var(--border);color:var(--text);background:linear-gradient(180deg,var(--panel),rgba(20,41,31,.45));padding:12px 16px;border-radius:14px;text-decoration:none;font-weight:600;box-shadow:var(--shadow)}
-    .btn:hover{border-color:rgba(126,194,138,.45);transform:translateY(-1px);transition:all .2s ease}
-    .btn.primary{background:linear-gradient(180deg,rgba(126,194,138,.25),rgba(126,194,138,.15));border-color:rgba(126,194,138,.45);color:#eaf6ee}
-    .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
-    @media (max-width:980px){.hero{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr 1fr}}
-    @media (max-width:620px){.card-grid{grid-template-columns:1fr}}
-    .card{background:radial-gradient(600px 300px at 20% 0%,rgba(126,194,138,.12) 0%,transparent 60%),var(--panel);border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
-    .card h3{margin:0 0 8px;font-size:20px}.card p{margin:0;color:var(--muted)}.chip{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:6px 10px;margin-right:8px;margin-top:12px;font-size:13px;color:var(--muted)}
-    .muted{color:var(--muted)}
-    /* Blog */
-    .blog-list{display:grid;gap:16px}
-    .post{background:rgba(126,194,138,.05);border:1px solid var(--border);border-radius:14px;padding:16px}
-    .post h3{margin:0 0 6px}.post time{font-size:13px;color:var(--muted)}.post .tags{margin-top:8px}.post .tag{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:4px 8px;margin:0 6px 0 0;font-size:12px;color:var(--muted)}
-        /* Resume dropdown styles */
-    .resume-drop { border:1px solid var(--border); border-radius:var(--radius); background:var(--panel); box-shadow:var(--shadow); overflow:hidden; }
-    .resume-drop summary { list-style:none; cursor:pointer; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px; font-weight:600; }
-    .resume-drop summary::-webkit-details-marker { display:none; }
-    .resume-drop .chev { transition: transform .2s ease; }
-    .resume-drop[open] .chev { transform: rotate(180deg); }
-    .resume-frame { display:block; width:100%; height: min(88vh, 1200px); border:0; background:#0c1f17; }
-    .resume-fallback { padding:16px; color:var(--muted); }
-    .socials { display:flex; gap:24px; }
-    .icon-link { display:inline-flex; width:60px; height:60px; border-radius:16px; border:2px solid var(--border); align-items:center; justify-content:center; font-size:1.5rem; }
-    .icon-link:hover { border-color:rgba(126,194,138,0.45); transform:translateY(-1px); }
-    .icon-link svg { width:30px; height:30px; fill:currentColor; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status // Daily Log</title>
+    
+    <!-- Google Fonts: JetBrains Mono for code/headers, Inter for readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e', // Main Green
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        },
+                        void: {
+                            800: '#1e1e1e', // Lighter dark
+                            900: '#0f0f0f', // Main Background
+                            950: '#050505', // Deepest
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'blink': 'blink 1s step-end infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0f0f; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #15803d; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #22c55e; 
+        }
+
+        /* Scanline effect overlay */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            position: fixed;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50;
+            opacity: 0.15;
+        }
+        
+        /* Audio Player Styling */
+        audio::-webkit-media-controls-panel {
+            background-color: #22c55e;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="nav">
-      <a class="brand" href="#home" aria-label="Home">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M50 8C30 8 14 24 10 40c10-3 19-8 26-15-2 8-8 16-15 22 14-5 28-17 29-39Z" fill="#7ec28a"/></svg>
-        <h>Jo Trotechaud</h>
-      </a>
-      <nav class="menu" aria-label="Primary navigation">
-        <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">☰</button>
-        <ul id="navLinks" class="links">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+<body class="bg-void-900 text-gray-300 font-sans antialiased relative selection:bg-cyber-500 selection:text-void-950">
+
+    <!-- Background Grid Effect -->
+    <div class="fixed inset-0 z-0 opacity-10 pointer-events-none" 
+         style="background-image: linear-gradient(#15803d 1px, transparent 1px), linear-gradient(90deg, #15803d 1px, transparent 1px); background-size: 40px 40px;">
     </div>
-  </header>
+    
+    <!-- CRT Scanlines -->
+    <div class="scanlines"></div>
 
-  <main id="home">
-    <section class="hero" aria-labelledby="intro-title">
-      <div>
-        <h1 id="intro-title">Securing systems & demystifying threats.</h1>
-        <p>Hi! I’m <strong>Jo Trotechaud</strong>, a CSUSB IST Cybersecurity student and <strong>CompTIA Security+</strong> certified practitioner. I currently work in the Information Security & Compliance Department at CSUSB, built a home SIEM/EDR lab, and currently work to explore the vast world of IST, seeking to secure and support people and systems.</p>
-        <div class="cta">
-          <a class="btn primary" href="#work">View security projects</a>
-          <a class="btn" href="#resume">See my resume</a>
-          <a class="btn" href="resume.pdf" download>Download Resume</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 border-b border-cyber-900/50 bg-void-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="terminal" class="h-6 w-6 text-cyber-500"></i>
+                    <span class="font-mono font-bold text-cyber-500 tracking-wider">ROOT@HOME:~</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8 font-mono text-sm">
+                        <a href="#status" class="hover:text-cyber-400 transition-colors">./status_monitor</a>
+                        <a href="#podcast" class="hover:text-cyber-400 transition-colors">./daily_log</a>
+                        <span class="text-cyber-700">|</span>
+                        <div class="flex items-center gap-2 text-xs text-cyber-500">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-500"></span>
+                            </span>
+                            SYSTEM_ONLINE
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="card" aria-hidden="true">
-        <h3>Focus</h3>
-        <p>GRC • IAM • Incident Response • Threat Hunting • Vendor Risk • Audit Prep</p>
-        <div>
-          <span class="chip">Python</span><span class="chip">Bash / CLI</span><span class="chip">Linux</span><span class="chip">Log Analysis</span><span class="chip">Wazuh</span><span class="chip">Wireshark</span><span class="chip">Nmap</span><span class="chip">Git</span><span class="chip">Prompting</span>
+    </nav>
+
+    <main class="relative z-10 pt-24 pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+
+        <!-- Hero Section -->
+        <section class="text-center space-y-6 pt-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyber-800 bg-cyber-950/50 text-cyber-400 text-xs font-mono mb-4">
+                <i data-lucide="cpu" class="w-3 h-3"></i>
+                <span>KERNEL V.5.14.0 LOADED</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white font-mono">
+                WELCOME <span class="text-cyber-500">USER_01</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto font-light">
+                Monitoring internal network services and broadcasting daily encrypted audio logs.
+                <span class="animate-blink inline-block w-2 h-5 bg-cyber-500 ml-1 align-middle"></span>
+            </p>
+        </section>
+
+        <!-- Status Dashboard -->
+        <section id="status" class="space-y-8">
+            <div class="flex items-end justify-between border-b border-gray-800 pb-4">
+                <div>
+                    <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+                        <i data-lucide="activity" class="text-cyber-500"></i>
+                        SERVICE_STATUS
+                    </h2>
+                    <p class="text-gray-500 text-sm mt-1 font-mono">Real-time infrastructure monitoring</p>
+                </div>
+                <div class="text-right hidden sm:block">
+                    <p class="text-xs text-gray-500 font-mono">LAST_CHECK: <span id="timestamp"></span></p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service Card: Online -->
+                <div class="group bg-void-800/50 backdrop-blur border border-gray-800 hover:border-cyber-500/50 rounded-lg p-6 transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-cyber-950 rounded-md border border-cyber-900 group-hover:border-cyber-700 transition-colors">
+                            <i data-lucide="server" class="text-cyber-500 w-6 h-6"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyber-950 text-cyber-400 border border-cyber-900">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyber-500"></span>
+                            ONLINE
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-mono font-semibold text-white">Home_Assistant</h3>
+                    <div class="mt-4 flex justify-between text-xs font-mono text-gray-500">
+                        <span>UPTIME: 24D 3H</span>
+                        <span>LATENCY: 4ms</span>
+                    </div>
+                    <div class="mt-3 w-full bg-gray-800 rounded-full h-1">
+                        <div class="bg-cyber-600 h-1 rounded-full" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <!-- Service Card: Online -->
+                <div class="group bg-void-800/50 backdrop-blur border border-gray-800 hover:border-cyber-500/50 rounded-lg p-6 transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-cyber-950 rounded-md border border-cyber-900 group-hover:border-cyber-700 transition-colors">
+                            <i data-lucide="shield-check" class="text-cyber-500 w-6 h-6"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyber-950 text-cyber-400 border border-cyber-900">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyber-500"></span>
+                            ONLINE
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-mono font-semibold text-white">Pi-Hole DNS</h3>
+                    <div class="mt-4 flex justify-between text-xs font-mono text-gray-500">
+                        <span>BLOCKED: 14.2k</span>
+                        <span>LOAD: 0.12</span>
+                    </div>
+                    <div class="mt-3 w-full bg-gray-800 rounded-full h-1">
+                        <div class="bg-cyber-600 h-1 rounded-full" style="width: 98%"></div>
+                    </div>
+                </div>
+
+                <!-- Service Card: Warning/Offline -->
+                <div class="group bg-void-800/50 backdrop-blur border border-gray-800 hover:border-red-500/50 rounded-lg p-6 transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-red-950/30 rounded-md border border-red-900/50 group-hover:border-red-700 transition-colors">
+                            <i data-lucide="hard-drive" class="text-red-500 w-6 h-6"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-950/30 text-red-400 border border-red-900/50">
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                            OFFLINE
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-mono font-semibold text-white">Plex_Media_Svr</h3>
+                    <div class="mt-4 flex justify-between text-xs font-mono text-gray-500">
+                        <span>ERR: CONN_REFUSED</span>
+                        <span>PORT: 32400</span>
+                    </div>
+                    <div class="mt-3 w-full bg-gray-800 rounded-full h-1">
+                        <div class="bg-red-900 h-1 rounded-full" style="width: 10%"></div>
+                    </div>
+                </div>
+
+                 <!-- Service Card: Online -->
+                 <div class="group bg-void-800/50 backdrop-blur border border-gray-800 hover:border-cyber-500/50 rounded-lg p-6 transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-cyber-950 rounded-md border border-cyber-900 group-hover:border-cyber-700 transition-colors">
+                            <i data-lucide="wifi" class="text-cyber-500 w-6 h-6"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyber-950 text-cyber-400 border border-cyber-900">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyber-500"></span>
+                            ONLINE
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-mono font-semibold text-white">Ubiquiti_Controller</h3>
+                    <div class="mt-4 flex justify-between text-xs font-mono text-gray-500">
+                        <span>CLIENTS: 14</span>
+                        <span>WAN: 940 Mbps</span>
+                    </div>
+                    <div class="mt-3 w-full bg-gray-800 rounded-full h-1">
+                        <div class="bg-cyber-600 h-1 rounded-full" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+                 <!-- Service Card: Maintenance -->
+                 <div class="group bg-void-800/50 backdrop-blur border border-gray-800 hover:border-yellow-500/50 rounded-lg p-6 transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-yellow-950/30 rounded-md border border-yellow-900/50 group-hover:border-yellow-700 transition-colors">
+                            <i data-lucide="database" class="text-yellow-500 w-6 h-6"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-950/30 text-yellow-400 border border-yellow-900/50">
+                            <span class="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-pulse"></span>
+                            MAINTENANCE
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-mono font-semibold text-white">TrueNAS_Core</h3>
+                    <div class="mt-4 flex justify-between text-xs font-mono text-gray-500">
+                        <span>SCRUBBING...</span>
+                        <span>ZFS POOL: 82%</span>
+                    </div>
+                    <div class="mt-3 w-full bg-gray-800 rounded-full h-1">
+                        <div class="bg-yellow-600 h-1 rounded-full" style="width: 82%"></div>
+                    </div>
+                </div>
+
+                 <!-- Service Card: Online -->
+                 <div class="group bg-void-800/50 backdrop-blur border border-gray-800 hover:border-cyber-500/50 rounded-lg p-6 transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-cyber-950 rounded-md border border-cyber-900 group-hover:border-cyber-700 transition-colors">
+                            <i data-lucide="globe" class="text-cyber-500 w-6 h-6"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyber-950 text-cyber-400 border border-cyber-900">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyber-500"></span>
+                            ONLINE
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-mono font-semibold text-white">VPN_Gateway</h3>
+                    <div class="mt-4 flex justify-between text-xs font-mono text-gray-500">
+                        <span>TUNNEL: ESTABLISHED</span>
+                        <span>IP: 10.8.0.1</span>
+                    </div>
+                    <div class="mt-3 w-full bg-gray-800 rounded-full h-1">
+                        <div class="bg-cyber-600 h-1 rounded-full" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Podcast/Log Section (Terminal Style) -->
+        <section id="podcast" class="max-w-4xl mx-auto pt-12">
+            <div class="flex items-end justify-between border-b border-gray-800 pb-4 mb-8">
+                <div>
+                    <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+                        <i data-lucide="mic" class="text-cyber-500"></i>
+                        AUDIO_LOGS
+                    </h2>
+                    <p class="text-gray-500 text-sm mt-1 font-mono">Banana</p>
+                </div>
+            </div>
+
+            <!-- Terminal Window -->
+            <div class="w-full rounded-lg overflow-hidden border border-gray-800 bg-[#0c0c0c] shadow-2xl relative">
+                <!-- Terminal Header -->
+                <div class="bg-gray-900/80 px-4 py-2 flex items-center gap-2 border-b border-gray-800">
+                    <div class="flex gap-1.5">
+                        <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                    </div>
+                    <div class="flex-1 text-center">
+                        <span class="text-xs font-mono text-gray-500">bash — 80x24</span>
+                    </div>
+                </div>
+
+                <!-- Terminal Body -->
+                <div class="p-6 font-mono text-sm md:text-base leading-relaxed text-gray-300">
+                    <div class="mb-6">
+                        <span class="text-cyber-500">root@sys:~#</span> cat ./daily_briefing_2025-10-24.txt
+                        <br><br>
+                        <span class="text-white font-bold">DATE:</span> October 24, 2025<br>
+                        <span class="text-white font-bold">SUBJECT:</span> The Shift to Optical Computing & Coffee Supply Levels<br>
+                        <span class="text-white font-bold">STATUS:</span> Recorded<br>
+                        <br>
+                        <div class="pl-4 border-l-2 border-cyber-800 text-cyber-100/80 italic">
+                            "Banana"
+                        </div>
+                    </div>
+
+                    <!-- Audio Player Mockup -->
+                    <div class="mt-8 bg-void-800 border border-cyber-900/30 rounded p-4">
+                        <div class="flex items-center gap-4 mb-2">
+                            <span class="text-xs text-cyber-500">PLAYING: briefing_v2.mp3</span>
+                        </div>
+                        
+                        <!-- Custom styled audio element (functionality provided by browser default controls, styled via CSS if possible, but keeping it standard for reliability) -->
+                        <audio controls class="w-full h-10 block rounded opacity-80 hover:opacity-100 transition-opacity">
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        
+                        <!-- Visualizer Graphic (CSS only) -->
+                        <div class="flex items-end justify-between h-8 mt-3 gap-1 px-1">
+                            <div class="w-1 bg-cyber-800 h-2 animate-pulse"></div>
+                            <div class="w-1 bg-cyber-700 h-4 animate-pulse-slow"></div>
+                            <div class="w-1 bg-cyber-600 h-6"></div>
+                            <div class="w-1 bg-cyber-500 h-3 animate-pulse"></div>
+                            <div class="w-1 bg-cyber-500 h-7"></div>
+                            <div class="w-1 bg-cyber-600 h-5 animate-pulse-slow"></div>
+                            <div class="w-1 bg-cyber-700 h-2"></div>
+                            <div class="w-1 bg-cyber-800 h-4 animate-pulse"></div>
+                            <div class="w-1 bg-cyber-800 h-2"></div>
+                            <div class="w-1 bg-cyber-700 h-5 animate-pulse-slow"></div>
+                            <div class="w-1 bg-cyber-600 h-3"></div>
+                            <div class="w-1 bg-cyber-500 h-6 animate-pulse"></div>
+                            <div class="w-1 bg-cyber-500 h-8"></div>
+                            <div class="w-1 bg-cyber-600 h-4 animate-pulse-slow"></div>
+                            <div class="w-1 bg-cyber-700 h-2"></div>
+                            <div class="w-1 bg-cyber-800 h-3 animate-pulse"></div>
+                             <div class="w-1 bg-cyber-800 h-2 animate-pulse"></div>
+                            <div class="w-1 bg-cyber-700 h-4 animate-pulse-slow"></div>
+                            <div class="w-1 bg-cyber-600 h-6"></div>
+                            <div class="w-1 bg-cyber-500 h-3 animate-pulse"></div>
+                            <div class="w-1 bg-cyber-500 h-7"></div>
+                            <div class="w-1 bg-cyber-600 h-5 animate-pulse-slow"></div>
+                            <div class="w-1 bg-cyber-700 h-2"></div>
+                            <div class="w-1 bg-cyber-800 h-4 animate-pulse"></div>
+                            <div class="w-1 bg-cyber-800 h-2"></div>
+                            <div class="w-1 bg-cyber-700 h-5 animate-pulse-slow"></div>
+                            <div class="w-1 bg-cyber-600 h-3"></div>
+                            <div class="w-1 bg-cyber-500 h-6 animate-pulse"></div>
+                            <div class="w-1 bg-cyber-500 h-8"></div>
+                            <div class="w-1 bg-cyber-600 h-4 animate-pulse-slow"></div>
+                            <div class="w-1 bg-cyber-700 h-2"></div>
+                            <div class="w-1 bg-cyber-800 h-3 animate-pulse"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <span class="text-cyber-500">root@sys:~#</span> <span class="animate-blink bg-cyber-500 w-2 h-5 inline-block align-middle"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-gray-800 bg-void-950 mt-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="command" class="text-gray-600 h-5 w-5"></i>
+                <span class="text-gray-500 text-sm font-mono">© 2025 SYS_ADMIN_PORTAL</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-cyber-500 transition-colors">
+                    <i data-lucide="github" class="h-5 w-5"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-cyber-500 transition-colors">
+                    <i data-lucide="twitter" class="h-5 w-5"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-cyber-500 transition-colors">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- Latest teaser -->
-    <section id="latest" aria-labelledby="latest-title">
-      <h2 id="latest-title">Latest Update</h2>
-      <div class="card" id="latestPost"><p class="muted" style="margin:0">Fetching latest update…</p></div>
-    </section>
+    <!-- Simple JS to initialize icons and time -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-    <section id="work" aria-labelledby="work-title">
-      <h2 id="work-title">Security Projects</h2>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Home SIEM & EDR Lab</h3>
-          <p>Designed a hands-on lab with Wazuh SIEM/EDR, Kali for attack simulation, and VM endpoints (Metasploitable) to practice detection & response workflows.</p>
-          <div>
-            <span class="chip">Wazuh</span><span class="chip">Kali</span><span class="chip">VirtualBox</span><span class="chip">Log Analysis</span>
-          </div>
-          <p style="margin-top:12px;"><a class="btn" href="https://github.com/ShuddFouei/Home-SIEM-Lab-1" target="_blank" rel="noopener">View Repo</a></p>
-        </article>
-        <article class="card">
-          <h3>Audit Prep Automation</h3>
-          <p>Built a Python tool to split a ~15,000-page PDF into individual documents, cutting a ~50-hour manual process down to a single run and accelerating audit preparation.</p>
-          <div>
-            <span class="chip">Python</span><span class="chip">Automation</span><span class="chip">Compliance</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Access Governance Practice</h3>
-          <p>Modeled identity & access workflows and controls reflective of enterprise systems (PeopleSoft/Campus Solutions/HR), documenting least-privilege and deprovisioning procedures.</p>
-          <div>
-            <span class="chip">IAM</span><span class="chip">GRC</span><span class="chip">Process Design</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience" aria-labelledby="exp-title">
-      <h2 id="exp-title">Experience</h2>
-      <article class="card">
-        <h3>Information Security & Compliance Student Assistant — CSUSB</h3>
-        <p><em>Nov 2024 – Present</em></p>
-        <ul style="margin:0; padding-left:18px; color:var(--muted);">
-          <li>Automated splitting of a ~15,000-page PDF into individual docs with Python, reducing manual work (~50 hours) to one run and accelerating audit prep.</li>
-          <li>Manage and monitor access to enterprise resources (PeopleSoft, Campus Solutions, HR, Common Financial Systems).</li>
-          <li>Assist with audits, deprovisioning forms, vendor risk assessments, and reviews of SOC reports / HECVATs in alignment with CSU/CSUSB policies.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>Team Member — Gourmet Pizza Shoppe</h3>
-        <p><em>Mar 2023 – Present</em></p>
-        <p class="muted">High-volume customer service and PoS operations during peak periods; cross-trained across roles to maintain service quality. <strong>Highlights:</strong> customer empathy, clear communication, teamwork under pressure, conflict resolution, reliability.</p>
-      </article>
-    </section>
-
-    <section id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <div class="card">
-        <p>I’m an IST Cybersecurity major at CSUSB (B.S. Cybersecurity Concentration — expected Spring 2026) and a CompTIA Security+ certified practitioner. I enjoy building small labs to learn, documenting processes clearly, and turning complicated risks into practical steps.</p>
-        <p><strong>Activities:</strong> Member of the CSUSB CISO Club.</p>
-      </div>
-    </section>
-
-    <section id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills</h2>
-      <div class="card">
-        <p><strong>Security & Compliance:</strong> GRC, Risk Management & Mitigation, IAM, Network Security, Security Architecture, Incident Response</p>
-        <p><strong>Technical:</strong> Log Analysis, Python, Bash/CLI, Linux Configuration, Excel, HTML/CSS/JavaScript</p>
-        <p><strong>Soft Skills:</strong> Communication, Team Collaboration</p>
-        <p><strong>Certifications:</strong> CompTIA Security+ (SY0-701) — Earned July 2025 (expires July 2028); AWS Security Fundamentals</p>
-      </div>
-    </section>
-
-    <section id="education" aria-labelledby="edu-title">
-      <h2 id="edu-title">Education</h2>
-      <div class="card">
-        <p><strong>CSU San Bernardino</strong> — B.S. Information Systems & Technology, Cybersecurity Concentration <em>(Expected Spring 2026)</em></p>
-        <p><strong>Crafton Hills College</strong> — A.S. Computer Science</p>
-      </div>
-    </section>
-
-    <section id="blog" aria-labelledby="blog-title">
-      <h2 id="blog-title">Updates</h2>
-      <div class="card">
-        <div id="blogList" class="blog-list"></div>
-        <p id="noPosts" class="muted" style="margin:0">No updates yet. Add posts to <code>blog.json</code> in your repo.</p>
-      </div>
-    </section>
-
-    <section id="resume">
-      <h2>Resume</h2>
-      <details class="resume-drop">
-        <summary>
-          <span>Open resume (PDF)</span>
-          <span class="chev" aria-hidden="true">▼</span>
-        </summary>
-        <object class="resume-frame" data="resume.pdf" type="application/pdf" aria-label="Resume PDF">
-          <div class="resume-fallback">
-            Your browser can’t display PDFs here. You can <a href="resume.pdf">open the resume</a> in a new tab or <a href="resume.pdf" download>download it</a>.
-          </div>
-        </object>
-      </details>
-    </section>
-
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap: wrap;">
-        <p class="muted" style="margin:0;">Email me or connect via the following:</p>
-        <div class="socials" aria-label="Social links">
-          <a class="icon-link" href="https://github.com/ShuddFouei" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.2-1.12-1.52-1.12-1.52-.92-.65.07-.64.07-.64 1.02.07 1.55 1.06 1.55 1.06.9 1.57 2.36 1.12 2.93.85.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.1 0-1.13.39-2.06 1.03-2.79-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.06A9.21 9.21 0 0 1 12 7.09c.85 0 1.71.12 2.51.34 1.9-1.33 2.74-1.06 2.74-1.06.56 1.41.21 2.45.1 2.71.64.73 1.03 1.66 1.03 2.79 0 3.97-2.34 4.83-4.57 5.09.36.32.69.95.69 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.6.69.49A10.06 10.06 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="currentColor"/></svg></a>
-          <a class="icon-link" href="https://www.linkedin.com/in/jo-trotechaud/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.04 0 4.78 2.66 4.78 6.12V23h-4v-5.7c0-1.36-.02-3.1-1.89-3.1-1.89 0-2.18 1.48-2.18 3v5.8H8V8z" fill="currentColor"/></svg></a>
-          <a class="icon-link" href="mailto:jotrotechaud@protonmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z" fill="currentColor"/></svg></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <section style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-      <small class="muted">© <span id="year"></span> Jo Trotechaud.</small>
-      <a href="#home" class="btn" aria-label="Back to top">Back to top</a>
-    </section>
-  </footer>
-
-  <script>
-    // Mobile menu
-    const btn=document.getElementById('menuBtn');const links=document.getElementById('navLinks');if(btn&&links){btn.addEventListener('click',()=>{const open=links.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});}
-    // Active link sync
-    const sections=[...document.querySelectorAll('main section[id]')];const navAs=document.querySelectorAll('.links a');const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.getAttribute('id');navAs.forEach(a=>{a.removeAttribute('aria-current');if(a.getAttribute('href')==='#'+id)a.setAttribute('aria-current','page');});}});},{rootMargin:'-40% 0px -50% 0px',threshold:.01});sections.forEach(s=>io.observe(s));
-    document.getElementById('year').textContent=new Date().getFullYear();
-
-    // --- Blog & Teaser fetch ---
-    async function loadBlog(){
-      try{
-        const res = await fetch('blog.json', {cache:'no-store'});
-        const posts = await res.json();
-        if(!Array.isArray(posts)) return;
-        // Teaser
-        const teaser = document.getElementById('latestPost');
-        if(posts.length && teaser){
-          const p = [...posts].sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
-          teaser.innerHTML = `
-            <h3 style="margin:0 0 6px;">${p.title || 'Latest Update'}</h3>
-            ${p.date?`<time datetime="${p.date}">${new Date(p.date).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'2-digit'})}</time>`:''}
-            ${p.summary?`<p style="margin-top:6px;">${p.summary}</p>`:''}
-            <div class="tags" style="margin-top:8px;">${(p.tags||[]).map(t=>`<span class='tag' style='display:inline-block;border:1px solid var(--border);border-radius:999px;padding:4px 8px;margin-right:6px;font-size:12px;color:var(--muted)'>${t}</span>`).join('')}</div>
-            <p style="margin-top:12px;"><a class="btn" href="#blog">View all updates</a></p>`;
+        // Update Timestamp
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+            document.getElementById('timestamp').textContent = timeString;
         }
-        // Full list
-        const list = document.getElementById('blogList');
-        const empty = document.getElementById('noPosts');
-        if(list){
-          if(posts.length){ empty && (empty.style.display='none'); }
-          posts.sort((a,b)=>new Date(b.date)-new Date(a.date)).forEach(p=>{
-            const wrap=document.createElement('article');wrap.className='post';
-            const h=document.createElement('h3');h.textContent=p.title||'Untitled';wrap.appendChild(h);
-            if(p.date){const t=document.createElement('time');t.dateTime=p.date;t.textContent=new Date(p.date).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'2-digit'});wrap.appendChild(t);}
-            if(p.summary){const s=document.createElement('p');s.textContent=p.summary;wrap.appendChild(s);}
-            if(Array.isArray(p.tags)&&p.tags.length){const tags=document.createElement('div');tags.className='tags';p.tags.forEach(tag=>{const span=document.createElement('span');span.className='tag';span.textContent=tag;tags.appendChild(span);});wrap.appendChild(tags);} 
-            if(p.link){const a=document.createElement('a');a.href=p.link;a.target='_blank';a.rel='noopener';a.textContent='Open link';a.className='btn';a.style.marginTop='10px';wrap.appendChild(a);} 
-            list.appendChild(wrap);
-          });
-        }
-      }catch(err){console.error('Blog load failed', err);}
-    }
-    loadBlog();
-  </script>
+        
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
 </body>
 </html>
