@@ -327,27 +327,49 @@
 
                 <!-- Terminal Body -->
                 <div class="p-6 font-mono text-sm md:text-base leading-relaxed text-gray-300">
-                    <div class="mb-6">
-                        <span class="text-cyber-500">root@sys:~#</span> cat ./daily_briefing_2025-10-24.txt
-                        <br><br>
-                        <span class="text-white font-bold">DATE:</span>December 2nd, 2025 <br>
-                        <span class="text-white font-bold">SUBJECT:</span> The Shift to Optical Computing & Coffee Supply Levels<br>
-                        <span class="text-white font-bold">STATUS:</span> Recorded<br>
-                        <br>
-                        <div class="pl-4 border-l-2 border-cyber-800 text-cyber-100/80 italic">
-                            "Good morning, everyone! This is Dante, bringing you the latest from the tech world to kickstart your day.
-
-Today’s big headline comes from Apple. They’ve just unveiled a new generation of MacBook Pros featuring their next-gen M3 chips. These chips promise a serious boost in performance and energy efficiency, pushing the boundaries of what’s possible in a laptop. For developers and creatives, this could mean faster workflows and longer battery life without sacrificing power. It’s another strong move in Apple’s strategy to control both hardware and software for seamless performance.
-
-Now, let’s talk about something every IT pro encounters: managing sprawling hybrid cloud environments. With more companies juggling on-prem servers alongside multiple cloud providers, automation is key. Enter Infrastructure as Code — or IaC. Tools like Terraform and Pulumi let you define and manage your entire infrastructure in code, making it easier to provision, update, and maintain resources consistently. Adopting IaC practices can drastically reduce configuration drift and speed up deployments, especially when combined with CI/CD pipelines.
-
-On security, there’s increasing attention on supply chain risks. Vulnerabilities in third-party software dependencies have been the entry point for some recent high-profile breaches. To combat this, many organizations are now implementing rigorous software bill of materials tracking and automated vulnerability scans during build processes. It’s a critical step to ensure that the code you ship is secure from the ground up.
-
-Before I sign off, a shoutout to the growing community of homelabbers experimenting with AI-powered tools like OpenWebUI. It’s incredible to see powerful tech becoming accessible for both professionals and hobbyists alike.
-
-Alright, that wraps up today’s update. And remember: in tech, if you don’t stay ahead, you’re just caching up! Have a great day, and I’ll catch you next time."
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        
+                        <!-- Podcast Banner (1x1 Window) -->
+                        <div class="shrink-0 relative group">
+                            <div class="w-48 h-48 bg-void-950 border border-cyber-900/50 p-1 relative">
+                                <!-- Corner accents -->
+                                <div class="absolute -top-px -left-px w-3 h-3 border-t-2 border-l-2 border-cyber-500"></div>
+                                <div class="absolute -top-px -right-px w-3 h-3 border-t-2 border-r-2 border-cyber-500"></div>
+                                <div class="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-cyber-500"></div>
+                                <div class="absolute -bottom-px -right-px w-3 h-3 border-b-2 border-r-2 border-cyber-500"></div>
+                                
+                                <!-- Image Placeholder -->
+                                <img src="podcast_cover.jpg" alt="Podcast Cover" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0">
+                            </div>
+                            <div class="text-center mt-2 text-xs text-cyber-700 font-mono">IMG_SOURCE: LOCAL</div>
                         </div>
-                    </div>
+
+                        <!-- Content & Player -->
+                        <div class="flex-1 min-w-0">
+                            <div class="mb-6">
+                                <span class="text-cyber-500">root@sys:~#</span> cat ./daily_briefing_2025-10-24.txt
+                                <br><br>
+                                <span class="text-white font-bold">DATE:</span> October 24, 2025<br>
+                                <span class="text-white font-bold">SUBJECT:</span> The Shift to Optical Computing & Coffee Supply Levels<br>
+                                <span class="text-white font-bold">STATUS:</span> Recorded<br>
+                                <br>
+                                <div class="pl-4 border-l-2 border-cyber-800 text-cyber-100/80 italic">
+                                    Good morning, everyone! This is Dante, welcoming you to another quick tech update to kickstart your day.  
+
+Let’s jump right in. This week, Google announced a significant upgrade to their AI chatbot Bard, now integrated with real-time web browsing capabilities. This means Bard can pull in live data to answer queries with up-to-the-minute accuracy, raising the bar for conversational AI tools. It’s a clear signal that search engines and AI assistants are blurring together more than ever, shaping how we interact with information online.  
+
+On the IT front, there’s a growing emphasis on container security. With Kubernetes adoption skyrocketing, securing containerized environments has become a top priority. Recent vulnerabilities in popular container runtimes have reminded us that traditional security measures don’t always fit cloud-native environments. IT teams are now investing more in automated vulnerability scanning and runtime protection to close these gaps.  
+
+Also, fascinating to see how AI ops platforms are evolving. These tools analyze vast amounts of operational data, predicting outages and performance bottlenecks before users even notice. This shift toward predictive IT management is creating smoother digital experiences and freeing up engineers to focus on strategy rather than troubleshooting.  
+
+Before we wrap, a quick reminder: whether it’s AI, cloud, or containers, the key to success is staying curious and adaptable—because in tech, yesterday’s breakthrough is tomorrow’s baseline.  
+
+Alright, that’s your morning byte. Remember, with AI and real-time data coming together, it’s clear the future is really “streaming” ahead—so let’s not get caught buffering!  
+
+I’m Dante, signing off. See you tomorrow for more fresh tech insights!
+                                </div>
+                            </div>
+
 
                     <!-- Audio Player Mockup -->
                     <div class="mt-8 bg-void-800 border border-cyber-900/30 rounded p-4">
